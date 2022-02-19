@@ -1,6 +1,34 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <style>
+    .img-overlay-wrap {
+      position: relative;
+      display: inline-block; /* <= shrinks container to image size */
+      transition: transform 150ms ease-in-out;
+    }
+
+    .img-overlay-wrap img { /* <= optional, for responsiveness */
+      display: block;
+      max-width: 100%;
+      height: auto; 
+    }
+
+    .img-overlay-wrap svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+      position: relative;
+      top: 100 px;
+    }
+    </style>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
