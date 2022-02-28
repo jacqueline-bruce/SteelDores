@@ -39,6 +39,30 @@ def logout():
 def nav_to_lead():
     return render_template("lead.html", user=current_user)
 
+@auth.route('/double-tenor')
+@login_required
+def nav_to_double_tenor():
+    return render_template("double-tenor.html", user=current_user)
+
+@auth.route('/double-second')
+@login_required
+def nav_to_double_second():
+    return render_template("double-second.html", user=current_user)
+
+@auth.route('/guitar-cello')
+@login_required
+def nav_to_guitar_cello():
+    return render_template("guitar-cello.html", user=current_user)
+
+@auth.route('/tenor-bass')
+@login_required
+def nav_to_tenor_bass():
+    return render_template("tenor-bass.html", user=current_user)
+
+@auth.route('/six-bass')
+@login_required
+def nav_to_six_bass():
+    return render_template("six-bass.html", user=current_user)
 
 @auth.route('/sign-up', methods=['GET', 'POST'])
 def sign_up():
