@@ -15,6 +15,59 @@
       padding:0; 
       overflow:hidden 
     }
+
+    .button {
+      background-color: #d8ac4d;
+      border: none;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 4px;
+      position: fixed;
+    }
+
+    .button1
+    {
+      left: 0;
+      top: 0;
+    }
+
+    .button2
+    {
+      left: 0;
+      top: 50px;
+    }
+
+    .button3
+    {
+      background-color: white;
+      display: inline-block;
+      border: none;
+      position: fixed;
+      left: 10px;
+      bottom: 10px;
+    }
+
+    .button4
+    {
+      right: 0;
+      top: 0;
+    }
+
+    .button5
+    {
+      right: 0;
+      top: 50px;
+    }
+
+    .record
+    {
+      color: red;
+    }
+
     </style>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -30,10 +83,12 @@
       crossorigin="anonymous"
     />
 
+    <script src="https://kit.fontawesome.com/b1b8d08681.js" crossorigin="anonymous"></script>
+
     <title>{% block title %}Home{% endblock %}</title>
   </head>
   <body>
-
+    
     {% with messages = get_flashed_messages(with_categories=true) %} {% if
     messages %} {% for category, message in messages %} {% if category ==
     'error' %}
@@ -73,5 +128,12 @@
       type="text/javascript"
       src="{{ url_for('static', filename='index.js') }}"
     ></script>
+
+    <button class="button button1"><i class="fa-regular fa-drum-steelpan"></i> Select Drum</button>
+    <button class="button button2"><i class="fa-solid fa-arrow-left"></i> Menu</button>
+    <button class="button3"><i class="record fa-regular fa-circle-dot fa-3x"></i></button>
+    <button class="button button4"><i class="fa-regular fa-gear"></i> Settings</button>
+    <button class="button button5"><i class="fa-regular fa-circle-question"></i> Help</button>
+
   </body>
 </html>
