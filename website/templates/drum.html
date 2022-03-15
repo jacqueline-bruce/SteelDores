@@ -16,6 +16,17 @@
       overflow:hidden 
     }
 
+    a, a:hover, a:focus, a:active {
+      text-decoration: none!important;
+      color: inherit;
+    }
+
+    .notes { 
+      font: tahoma;
+      fill: black;
+      text-anchor: "middle";
+    }
+
     .button {
       background-color: #d8ac4d;
       border: none;
@@ -134,6 +145,15 @@
     <button class="button3"><i class="record fa-regular fa-circle-dot fa-3x"></i></button>
     <button class="button button4"><i class="fa-regular fa-gear"></i> Settings</button>
     <button class="button button5"><i class="fa-regular fa-circle-question"></i> Help</button>
+
+    <audio id="audio" src="/static/gettysburg10.wav" autoplay="false"></audio>
+
+    <script>
+      function playSound(id) {
+          var sound = document.getElementById(id);
+          sound.play();
+      }
+    </script>
 
   </body>
 </html>
