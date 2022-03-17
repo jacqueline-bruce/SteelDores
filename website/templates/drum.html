@@ -146,12 +146,290 @@
     <button class="button button4"><i class="fa-regular fa-gear"></i> Settings</button>
     <button class="button button5"><i class="fa-regular fa-circle-question"></i> Help</button>
 
-    <audio id="audio" src="/static/gettysburg10.wav" autoplay="false"></audio>
-
     <script>
-      function playSound(id) {
-          var sound = document.getElementById(id);
-          sound.play();
+      var A_high = new Audio('/static/Notes/A_high.wav')
+      A_high.preload = 'auto';
+      A_high.load();
+
+      var A0 = new Audio('/static/Notes/A0.wav')
+      A0.preload = 'auto';
+      A0.load();
+
+      var A1 = new Audio('/static/Notes/A1.wav')
+      A1.preload = 'auto';
+      A1.load();
+
+      var A2 = new Audio('/static/Notes/A2.wav')
+      A2.preload = 'auto';
+      A2.load();
+
+      var A3 = new Audio('/static/Notes/A3.wav')
+      A3.preload = 'auto';
+      A3.load();
+
+      var A4 = new Audio('/static/Notes/A4.wav')
+      A4.preload = 'auto';
+      A4.load();
+
+      var A5 = new Audio('/static/Notes/A5.wav')
+      A5.preload = 'auto';
+      A5.load();
+
+      var Ab1 = new Audio('/static/Notes/Ab1.wav')
+      Ab1.preload = 'auto';
+      Ab1.load();
+
+      var Ab2 = new Audio('/static/Notes/Ab2.wav')
+      Ab2.preload = 'auto';
+      Ab2.load();
+
+      var Ab3 = new Audio('/static/Notes/Ab3.wav')
+      Ab3.preload = 'auto';
+      Ab3.load();
+
+      var Ab4 = new Audio('/static/Notes/Ab4.wav')
+      Ab4.preload = 'auto';
+      Ab4.load();
+
+      var Ab5 = new Audio('/static/Notes/Ab5.wav')
+      Ab5.preload = 'auto';
+      Ab5.load();
+
+      var Db4 = new Audio('/static/Notes/Db5.wav')
+      Db4.preload = 'auto';
+      Db4.load();
+
+      var B_high = new Audio('/static/Notes/B_high.wav')
+      B_high.preload = 'auto';
+      B_high.load();
+
+      var B0 = new Audio('/static/Notes/B0.wav')
+      B0.preload = 'auto';
+      B0.load();
+
+      var B1 = new Audio('/static/Notes/B1.wav')
+      B1.preload = 'auto';
+      B1.load();
+
+      var B2 = new Audio('/static/Notes/B2.wav')
+      B2.preload = 'auto';
+      B2.load();
+
+      var B3 = new Audio('/static/Notes/B3.wav')
+      B3.preload = 'auto';
+      B3.load();
+
+      var B4 = new Audio('/static/Notes/B4.wav')
+      B4.preload = 'auto';
+      B4.load();
+
+      var B5 = new Audio('/static/Notes/B5.wav')
+      B5.preload = 'auto';
+      B5.load();
+
+      var Bb_high = new Audio('/static/Notes/Bb_high.wav')
+      Bb_high.preload = 'auto';
+      Bb_high.load();
+
+      var Bb0 = new Audio('/static/Notes/Bb0.wav')
+      Bb0.preload = 'auto';
+      Bb0.load();
+
+      var Bb1 = new Audio('/static/Notes/Bb1.wav')
+      Bb1.preload = 'auto';
+      Bb1.load();
+
+      var Bb2 = new Audio('/static/Notes/Bb2.wav')
+      Bb2.preload = 'auto';
+      Bb2.load();
+
+      var Bb3 = new Audio('/static/Notes/Bb3.wav')
+      Bb3.preload = 'auto';
+      Bb3.load();
+
+      var Bb4 = new Audio('/static/Notes/Bb4.wav')
+      Bb4.preload = 'auto';
+      Bb4.load();
+
+      var Bb5 = new Audio('/static/Notes/Bb5.wav')
+      Bb5.preload = 'auto';
+      Bb5.load();
+
+      var C_high = new Audio('/static/Notes/C_high.wav')
+      C_high.preload = 'auto';
+      C_high.load();
+
+      var C0 = new Audio('/static/Notes/C0.wav')
+      C0.preload = 'auto';
+      C0.load();
+
+      var C1 = new Audio('/static/Notes/C1.wav')
+      C1.preload = 'auto';
+      C1.load();
+
+      var C2 = new Audio('/static/Notes/C2.wav')
+      C2.preload = 'auto';
+      C2.load();
+
+      var C3 = new Audio('/static/Notes/C3.wav')
+      C3.preload = 'auto';
+      C3.load();
+
+      var C4 = new Audio('/static/Notes/C4.wav')
+      C4.preload = 'auto';
+      C4.load();
+
+      var C5 = new Audio('/static/Notes/C5.wav')
+      C5.preload = 'auto';
+      C5.load();
+
+      var C6 = new Audio('/static/Notes/C6.wav')
+      C6.preload = 'auto';
+      C6.load();
+
+      var D1 = new Audio('/static/Notes/D1.wav')
+      D1.preload = 'auto';
+      D1.load();
+
+      var D2 = new Audio('/static/Notes/D2.wav')
+      D2.preload = 'auto';
+      D2.load();
+
+      var D3 = new Audio('/static/Notes/D3.wav')
+      D3.preload = 'auto';
+      D3.load();
+
+      var D4 = new Audio('/static/Notes/D4.wav')
+      D4.preload = 'auto';
+      D4.load();
+
+      var D5 = new Audio('/static/Notes/D5.wav')
+      D5.preload = 'auto';
+      D5.load();
+
+      var Db1 = new Audio('/static/Notes/Db1.wav')
+      Db1.preload = 'auto';
+      Db1.load();
+
+      var Db2 = new Audio('/static/Notes/Db2.wav')
+      Db2.preload = 'auto';
+      Db2.load();
+
+      var Db3 = new Audio('/static/Notes/Db3.wav')
+      Db3.preload = 'auto';
+      Db3.load();
+
+      var Db4 = new Audio('/static/Notes/Db4.wav')
+      Db4.preload = 'auto';
+      Db4.load();
+
+      var Db5 = new Audio('/static/Notes/Db5.wav')
+      Db5.preload = 'auto';
+      Db5.load();
+
+      var E1 = new Audio('/static/Notes/E1.wav')
+      E1.preload = 'auto';
+      E1.load();
+
+      var E2 = new Audio('/static/Notes/E2.wav')
+      E2.preload = 'auto';
+      E2.load();
+
+      var E3 = new Audio('/static/Notes/E3.wav')
+      E3.preload = 'auto';
+      E3.load();
+
+      var E4 = new Audio('/static/Notes/E4.wav')
+      E4.preload = 'auto';
+      E4.load();
+
+      var E5 = new Audio('/static/Notes/E5.wav')
+      E5.preload = 'auto';
+      E5.load();
+
+      var Eb1 = new Audio('/static/Notes/Eb1.wav')
+      Eb1.preload = 'auto';
+      Eb1.load();
+
+      var Eb2 = new Audio('/static/Notes/Eb2.wav')
+      Eb2.preload = 'auto';
+      Eb2.load();
+
+      var Eb3 = new Audio('/static/Notes/Eb3.wav')
+      Eb3.preload = 'auto';
+      Eb3.load();
+
+      var Eb4 = new Audio('/static/Notes/Eb4.wav')
+      Eb4.preload = 'auto';
+      Eb4.load();
+
+      var Eb5 = new Audio('/static/Notes/Eb5.wav')
+      Eb5.preload = 'auto';
+      Eb5.load();
+
+      var Fs1 = new Audio('/static/Notes/Fs1.wav')
+      Fs1.preload = 'auto';
+      Fs1.load();
+
+      var Fs2 = new Audio('/static/Notes/Fs2.wav')
+      Fs2.preload = 'auto';
+      Fs2.load();
+
+      var Fs3 = new Audio('/static/Notes/Fs3.wav')
+      Fs3.preload = 'auto';
+      Fs3.load();
+
+      var Fs4 = new Audio('/static/Notes/Fs4.wav')
+      Fs4.preload = 'auto';
+      Fs4.load();
+
+      var Fs5 = new Audio('/static/Notes/Fs5.wav')
+      Fs5.preload = 'auto';
+      Fs5.load();
+
+      var F1 = new Audio('/static/Notes/F1.wav')
+      F1.preload = 'auto';
+      F1.load();
+
+      var F2 = new Audio('/static/Notes/F2.wav')
+      F2.preload = 'auto';
+      F2.load();
+
+      var F3 = new Audio('/static/Notes/F3.wav')
+      F3.preload = 'auto';
+      F3.load();
+
+      var F4 = new Audio('/static/Notes/F4.wav')
+      F4.preload = 'auto';
+      F4.load();
+
+      var F5 = new Audio('/static/Notes/F5.wav')
+      F5.preload = 'auto';
+      F5.load();
+
+      var G1 = new Audio('/static/Notes/G1.wav')
+      G1.preload = 'auto';
+      G1.load();
+
+      var G2 = new Audio('/static/Notes/G2.wav')
+      G2.preload = 'auto';
+      G2.load();
+
+      var G3 = new Audio('/static/Notes/G3.wav')
+      G3.preload = 'auto';
+      G3.load();
+
+      var G4 = new Audio('/static/Notes/G4.wav')
+      G4.preload = 'auto';
+      G4.load();
+
+      var G5 = new Audio('/static/Notes/G5.wav')
+      G5.preload = 'auto';
+      G5.load();
+
+      function playNote(sound) {
+        var click=sound.cloneNode();
+        click.play();
       }
     </script>
 
