@@ -74,11 +74,6 @@
       top: 50px;
     }
 
-    .record
-    {
-      color: red;
-    }
-
     </style>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -140,11 +135,21 @@
       src="{{ url_for('static', filename='index.js') }}"
     ></script>
 
-    <button class="button button1"><i class="fa-regular fa-drum-steelpan"></i> Select Drum</button>
-    <button class="button button2"><i class="fa-solid fa-arrow-left"></i> Menu</button>
-    <button class="button3"><i class="record fa-regular fa-circle-dot fa-3x"></i></button>
-    <button class="button button4"><i class="fa-regular fa-gear"></i> Settings</button>
-    <button class="button button5"><i class="fa-regular fa-circle-question"></i> Help</button>
+    <a href = "/drum-select">
+      <button class="button button1"><i class="fa-regular fa-drum-steelpan"></i> Select Drum</button>
+    </a>
+
+    <a href = "/menu">
+      <button class="button button2"><i class="fa-solid fa-arrow-left"></i> Menu</button>
+    </a>
+
+    <a href = "/settings">
+      <button class="button button4"><i class="fa-regular fa-gear"></i> Settings</button>
+    </a>
+
+    <a href = "/help">
+      <button class="button button5"><i class="fa-regular fa-circle-question"></i> Help</button>
+    </a>
 
     <script>
       var A_high = new Audio('/static/Notes/A_high.wav')

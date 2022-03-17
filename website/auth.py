@@ -64,6 +64,26 @@ def nav_to_tenor_bass():
 def nav_to_six_bass():
     return render_template("six-bass.html", user=current_user)
 
+@auth.route('/help')
+@login_required
+def nav_to_help():
+    return render_template("help.html", user=current_user)
+
+@auth.route('/settings')
+@login_required
+def nav_to_settings():
+    return render_template("settings.html", user=current_user)
+
+@auth.route('/menu')
+@login_required
+def nav_to_menu():
+    return render_template("menu.html", user=current_user)
+
+@auth.route('/drum-select')
+@login_required
+def nav_to_drum_select():
+    return render_template("drum-select.html", user=current_user)
+
 @auth.route('/sign-up', methods=['GET', 'POST'])
 def sign_up():
     if request.method == 'POST':
