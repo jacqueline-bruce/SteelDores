@@ -1,8 +1,10 @@
-from flask import Blueprint, render_template, request, flash, redirect, url_for
+from flask import Blueprint, render_template, request, flash, redirect, url_for, send_file
 from .models import User
+from io import BytesIO
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
 from flask_login import login_user, login_required, logout_user, current_user
+from werkzeug.utils import secure_filename
 
 
 auth = Blueprint('auth', __name__)
@@ -26,7 +28,6 @@ def login():
             flash('Email does not exist.', category='error')
 
     return render_template("login.html", user=current_user)
-
 
 @auth.route('/logout')
 @login_required
@@ -83,6 +84,16 @@ def nav_to_menu():
 @login_required
 def nav_to_drum_select():
     return render_template("drum-select.html", user=current_user)
+
+#@auth.route('/music-library')
+#@login_required
+#def nav_to_music_library():
+#    return render_template("music-library.html", user=current_user)
+
+@auth.route('/add-music')
+@login_required
+def nav_to_add_music():
+    return render_template("add-music.html", user=current_user)
 
 @auth.route('/sign-up', methods=['GET', 'POST'])
 def sign_up():

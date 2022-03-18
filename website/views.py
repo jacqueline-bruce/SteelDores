@@ -1,11 +1,10 @@
 from flask import Blueprint, render_template, request, flash, jsonify
 from flask_login import login_required, current_user
-from .models import Note
+from .models import Note, Music
 from . import db
 import json
 
 views = Blueprint('views', __name__)
-
 
 @views.route('/', methods=['GET', 'POST'])
 @login_required
@@ -22,6 +21,22 @@ def home():
             flash('Note added!', category='success')
 
     return render_template("home.html", user=current_user)
+
+@views.route('/music-library', methods=['GET', 'POST'])
+@login_required
+def music_library():
+    if request.method == 'POST':
+        music = request.form.get('music')
+
+        if len(music) < 1:
+            flash('Note is too short!', category='error')
+        else:
+            new_music = Music(filename=music, user_id=current_user.id)
+            db.session.add(new_music)
+            db.session.commit()
+            flash('Music added!', category='success')
+
+    return render_template("temp.html", user=current_user)
 
 
 @views.route('/delete-note', methods=['POST'])

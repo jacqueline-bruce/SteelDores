@@ -1,0 +1,11 @@
+{% extends "base.html" %} {% block title %}Add a Music Sample{% endblock %} {% block content
+    %}
+    <h1 align="center">Add Music</h1>
+    <div class="center">
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="file">
+            <button>Submit</button>
+        </form>
+    </div>
+
+    {% endblock %}
