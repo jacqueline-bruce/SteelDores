@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for, send_file
-from .models import User
+from pyrsistent import v
+from .models import User, Music
 from io import BytesIO
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
@@ -85,14 +86,33 @@ def nav_to_menu():
 def nav_to_drum_select():
     return render_template("drum-select.html", user=current_user)
 
-#@auth.route('/music-library')
-#@login_required
-#def nav_to_music_library():
-#    return render_template("music-library.html", user=current_user)
-
-@auth.route('/add-music')
+@auth.route('/music-library')
 @login_required
-def nav_to_add_music():
+def nav_to_music_library():
+    return render_template("music-library.html", user=current_user)
+
+@auth.route('/add-music', methods=['GET', 'POST'])
+@login_required
+def add_music():
+    if request.method == 'POST':
+        title = request.form.get('title')
+        composer = request.form.get('composer')
+        genre = request.form.get('genre')
+        description = request.form.get('description')
+        pdf_link = request.form.get('pdf_link')
+        audio_link = request.form.get('audio_link')
+
+        if len(title) < 1:
+            flash('You must enter a title.', category='error')
+        else:
+            new_sample = Music(title=title, composer=composer, genre=genre,
+                               description=description, pdf_link=pdf_link,
+                               audio_link=audio_link, user_id=current_user.id)
+            db.session.add(new_sample)
+            db.session.commit()
+            flash('Sample added!', category='success')
+            return redirect(url_for('auth.nav_to_music_library'))
+
     return render_template("add-music.html", user=current_user)
 
 @auth.route('/sign-up', methods=['GET', 'POST'])

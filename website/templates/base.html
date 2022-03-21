@@ -16,6 +16,66 @@
       overflow:hidden 
     }
 
+    label {
+      font: tahoma;
+    }
+
+    table {
+      border:1px solid black;
+      width: 100%;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    th {
+      border:1px solid black;
+      width: 14%;
+      background-color: gainsboro;
+    }
+
+    td {
+      border:1px solid black;
+      width: 14%;
+      background-color: white;
+    }
+
+    .button {
+      background-color: black;
+      border: none;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 4px;
+      position: fixed;
+    }
+
+    .button1
+    {
+      left: 0;
+      top: 0;
+    }
+
+    .button2
+    {
+      left: 0;
+      top: 50px;
+    }
+
+    .button4
+    {
+      right: 0;
+      top: 0;
+    }
+
+    .button5
+    {
+      right: 0;
+      top: 50px;
+    }
+
     </style>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -30,38 +90,11 @@
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
       crossorigin="anonymous"
     />
+    <script src="https://kit.fontawesome.com/b1b8d08681.js" crossorigin="anonymous"></script>
 
     <title>{% block title %}Home{% endblock %}</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbar"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbar">
-        <div class="navbar-nav">
-          {% if user.is_authenticated %}
-          <a class="nav-item nav-link" id="home" href="/">Home</a>
-          <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
-          <a class="nav-item nav-link" id="lead" href="/lead">Lead</a>
-          <a class="nav-item nav-link" id="double-tenor" href="/double-tenor">Double Tenor</a>
-          <a class="nav-item nav-link" id="double-second" href="/double-second">Double Second</a>
-          <a class="nav-item nav-link" id="guitar-cello" href="/guitar-cello">Guitar/Cello</a>
-          <a class="nav-item nav-link" id="tenor-bass" href="/tenor-bass">Tenor Bass</a>
-          <a class="nav-item nav-link" id="six-bass" href="/six-bass">Six Bass</a>
-          {% else %}
-          <a class="nav-item nav-link" id="login" href="/login">Login</a>
-          <a class="nav-item nav-link" id="signUp" href="/sign-up">Sign Up</a>
-          {% endif %}
-        </div>
-      </div>
-    </nav>
-
     {% with messages = get_flashed_messages(with_categories=true) %} {% if
     messages %} {% for category, message in messages %} {% if category ==
     'error' %}
@@ -101,5 +134,22 @@
       type="text/javascript"
       src="{{ url_for('static', filename='index.js') }}"
     ></script>
+
+    <a href = "/drum-select">
+      <button class="button button1"><i class="fa-regular fa-drum-steelpan"></i> Select Drum</button>
+    </a>
+
+    <a href = "/menu">
+      <button class="button button2"><i class="fa-solid fa-arrow-left"></i> Menu</button>
+    </a>
+
+    <a href = "/settings">
+      <button class="button button4"><i class="fa-regular fa-gear"></i> Settings</button>
+    </a>
+
+    <a href = "/help">
+      <button class="button button5"><i class="fa-regular fa-circle-question"></i> Help</button>
+    </a>
+
   </body>
 </html>

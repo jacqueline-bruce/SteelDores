@@ -1,18 +1,53 @@
 {% extends "base.html" %} {% block title %}Music Library{% endblock %} {% block content
-    %}
-    <h1 align="center">Music Library</h1>
-    <ul class="list-group list-group-flush" id="notes">
-      {% for music in user.library %}
-      <li class="list-group-item">
-        {{ music.filename }}
-      </li>
-      {% endfor %}
-    </ul>
-    <form method="POST">
-      <textarea name="music" id="music" class="form-control"></textarea>
-      <br />
-      <div align="center">
-        <button type="submit" class="btn btn-primary">Add Music</button>
-      </div>
-    </form>
+      %}
+    <div>
+      <h1 align="center" style="line-height: 100px;">Music Library</h1>
+      <table>
+        <tr>
+          <th>Date Added</th>
+          <th>Title</th>
+          <th>Composer</th>
+          <th>Genre</th>
+          <th>Description</th>
+          <th>Sheet Music</th>
+          <th>Audio</th>
+        </tr>
+        {% for music in user.library %}
+          <tr>
+            <td>{{ music.date }}</td>
+            <td>{{ music.title }}</td>
+
+            {% if music.composer != '' %}
+              <td>{{ music.composer }}</td>
+            {% else %}
+              <td><em>No composer provided.</em></td>
+            {% endif %}
+
+            {% if music.genre != '' %}
+              <td>{{ music.genre }}</td>
+            {% else %}
+              <td><em>No genre provided.</em></td>
+            {% endif %}
+
+            {% if music.description != '' %}
+              <td>{{ music.description }}</td>
+            {% else %}
+              <td><em>No description provided.</em></td>
+            {% endif %}
+
+            {% if music.pdf_link != '' %}
+              <td><a href="{{ music.pdf_link }}" target="_blank">Click Here</a></td>
+            {% else %}
+              <td><em>No link provided.</em></td>
+            {% endif %}
+
+            {% if music.audio_link != '' %}
+              <td><a href="{{ music.audio_link }}" target="_blank">Click Here</a></td>
+            {% else %}
+              <td><em>No link provided.</em></td>
+            {% endif %}
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
     {% endblock %}

@@ -10,7 +10,12 @@ class Note(db.Model):
 
 class Music(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    filename = db.Column(db.String(100))
+    title = db.Column(db.String(100), nullable = False)
+    composer = db.Column(db.String(100), default='')
+    genre = db.Column(db.String(30), default='')
+    description = db.Column(db.String(2000), default='')
+    pdf_link = db.Column(db.String(1000), default='')
+    audio_link = db.Column(db.String(1000), default='')
     date = db.Column(db.DateTime(timezone=True), default=func.now())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
