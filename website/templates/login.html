@@ -1,7 +1,7 @@
-{% extends "base.html" %} {% block title %}Login{% endblock %} {% block content
+{% extends "user.html" %} {% block title %}Login{% endblock %} {% block content
     %}
     <form method="POST">
-      <h3 align="center">Login</h3>
+      <h1 align="center" style="line-height: 100px;">Login</h1>
       <div class="form-group">
         <label for="email">Email Address</label>
         <input
@@ -23,6 +23,13 @@
         />
       </div>
       <br />
-      <button type="submit" class="btn btn-primary">Login</button>
+      <button type="submit" class="btn btn-primary" style="background-color: #383c44; border-color: #383c44;">Login</button>
     </form>
+
+    <div style="margin-top: 10px;">
+      <h5 style="line-height: 50px;">New to Steel Dores?</h5>
+      <a href="/sign-up">
+        <button class="btn btn-primary" style="background-color: #383c44; border-color: #383c44;">Sign Up Here!</button>
+      </a>
+    </div>
     {% endblock %}

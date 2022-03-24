@@ -1,68 +1,69 @@
-{% extends "base.html" %} {% block title %}Add to Music Library{% endblock %} {% block
+{% extends "user.html" %} {% block title %}Add to Music Library{% endblock %} {% block
     content %}
     <form method="POST">
-      <h3 align="center">Add to Music Library Database</h3>
-      <div class="form-group">
-        <label for="title">Song Title</label>
-        <input
+        <div>
+            <h1 align="center" style="line-height: 70px;">Add to Music Library Database</h1>
+        </div>
+        <div class="form-group">
+            <label for="title">Song Title</label>
+            <input
           type="text"
           class="form-control"
           id="title"
           name="title"
           placeholder="Enter a title for the sample."
         />
-      </div>
-      <div class="form-group">
-        <label for="composer">Composer (Optional)</label>
-        <input
-          type="text"
-          class="form-control"
-          id="composer"
-          name="composer"
-          placeholder="Enter composer."
-        />
-      </div>
-      <div class="form-group">
-        <label for="genre">Genre (Optional)</label>
-        <input
-          type="text"
-          class="form-control"
-          id="genre"
-          name="genre"
-          placeholder="Enter genre."
-        />
-      </div>
-      <div class="form-group">
-        <label for="description">Description (Optional)</label>
-        <input
-          type="text"
-          class="form-control"
-          id="description"
-          name="description"
-          placeholder="Enter a description."
-        />
-      </div>
-      <div class="form-group">
-        <label for="pdf_link">Link to Sheet Music (Optional)</label>
-        <input
-          type="url"
-          class="form-control"
-          id="pdf_link"
-          name="pdf_link"
-          placeholder="Enter a link to sheet music."
-        />
-      </div>
-      <div class="form-group">
-        <label for="audio_link">Link to Audio (Optional)</label>
-        <input
-          type="url"
-          class="form-control"
-          id="audio_link"
-          name="audio_link"
-          placeholder="Enter a link to audio of the sample."
-        />
-      </div>
-      <br />
-      <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <div class="form-group">
+            <label for="composer">Composer (Optional)</label>
+            <input
+                type="text"
+                class="form-control"
+                id="composer"
+                name="composer"
+                placeholder="Enter composer."
+            />
+        </div>
+        <div class="form-group">
+            <label for="genre">Genre (Optional)</label>
+            <input
+                type="text"
+                class="form-control"
+                id="genre"
+                name="genre"
+                placeholder="Enter genre."
+            />
+        </div>
+        <div class="form-group">
+            <label for="description">Description (Optional)</label>
+            <input
+                type="text"
+                class="form-control"
+                id="description"
+                name="description"
+                placeholder="Enter a description."
+            />
+        </div>
+        <div class="form-group">
+            <label for="pdf_link">Link to Sheet Music (Optional)</label>
+            <input
+                type="url"
+                class="form-control"
+                id="pdf_link"
+                name="pdf_link"
+                placeholder="Enter a link to sheet music."
+            />
+        </div>
+        <div class="form-group">
+            <label for="audio_link">Link to Audio (Optional)</label>
+            <input
+                type="url"
+                class="form-control"
+                id="audio_link"
+                name="audio_link"
+                placeholder="Enter a link to audio of the sample."
+            />
+        </div>
+        <button type="submit" class="btn btn-primary" style="background-color: #383c44; border-color: #383c44;">Submit</button>
     </form>
     {% endblock %}

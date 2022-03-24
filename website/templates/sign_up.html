@@ -1,7 +1,7 @@
-{% extends "base.html" %} {% block title %}Sign Up{% endblock %} {% block
+{% extends "user.html" %} {% block title %}Sign Up{% endblock %} {% block
     content %}
     <form method="POST">
-      <h3 align="center">Sign Up</h3>
+      <h1 align="center" style="line-height: 100px;">Sign Up</h1>
       <div class="form-group">
         <label for="email">Email Address</label>
         <input
@@ -43,6 +43,13 @@
         />
       </div>
       <br />
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary" style="background-color: #383c44; border-color: #383c44;">Submit</button>
     </form>
+
+    <div style="margin-top: 10px;">
+      <h5 style="line-height: 50px;">Already have an account?</h5>
+      <a href="/login">
+        <button class="btn btn-primary" style="background-color: #383c44; border-color: #383c44;">Login Here!</button>
+      </a>
+    </div>
     {% endblock %}
