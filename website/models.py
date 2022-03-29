@@ -25,5 +25,7 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(150))
     first_name = db.Column(db.String(150))
     is_admin = db.Column(db.Boolean, default=False)
+    background_color = db.Column(db.String(7), default='#ffffff')
+    drum_color = db.Column(db.String(7), default='#dcdcdc')
     notes = db.relationship('Note')
     library = db.relationship('Music')

@@ -1,4 +1,35 @@
 {% extends "user.html" %} {% block title %}Settings{% endblock %} {% block content
     %}
-    <h1 align="center" style="line-height: 100px;">Settings</h1>
+    <form method="POST" align="center">
+        <h1 align="center" style="line-height: 70px;">Settings</h1>
+    
+        <input type="color" id="background" 
+               name="background" style="border-color: gainsboro" 
+               value={{ user.background_color }} /> -->
+
+        <button type="submit" class="btn btn-primary" 
+            style="background-color: #383c44; border-color: #383c44;">
+            Change Background Color</button>
+
+        <p></p>
+        <input type="color" id="drum-color" 
+                name="drum-color" style="border-color: gainsboro" 
+                value={{ user.drum_color }} /> -->
+        <button type="submit" class="btn btn-primary" 
+            style="background-color: #383c44; border-color: #383c44;">
+            Change Drum Color</button>
+
+        <p></p>
+        <input type="text" id ="new-password" name="new-password" /> -->
+        <button type="submit" class="btn btn-primary" 
+            style="background-color: #383c44; border-color: #383c44;">
+            Change Password</button>
+
+    
+        <p></p>
+        <input type="button" class="btn btn-primary" 
+            style="background-color: #383c44; border-color: #383c44;"
+            id = "deleteButton" value = "Delete Account">
+    </form>
+
     {% endblock %}

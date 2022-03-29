@@ -114,6 +114,21 @@ def add_music():
 
     return render_template("add-music.html", user=current_user)
 
+@auth.route('/settings', methods=['GET', 'POST'])
+def change_settings():
+    if request.method == 'POST':
+        background = request.form.get('background')
+        new_password = request.form.get('new-password')
+        drum_color = request.form.get('drum-color')
+
+        current_user.background_color = background
+        current_user.drum_color = drum_color
+        current_user.password = generate_password_hash(new_password, method='sha256')
+        db.session.commit()
+        return redirect(url_for('auth.nav_to_lead'))
+
+    return render_template("settings.html", user=current_user)
+
 @auth.route('/sign-up', methods=['GET', 'POST'])
 def sign_up():
     if request.method == 'POST':
