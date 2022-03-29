@@ -1,4 +1,57 @@
 {% extends "user.html" %} {% block title %}Select a Drum{% endblock %} {% block content
     %}
-    <h1 align="center" style="line-height: 100px;">Select a Drum</h1>
+    <h1 align="center" style="line-height: 70px;">Select a Drum</h1>
+    <div class="container-fluid">
+        <div class="row" style="row-gap:20px">
+            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6" style="background-color:black;">
+                <div style="text-align: center;">
+                    <a href = '/lead'>
+                        <img src="/static/Drums/lead.png" width="190px" align="center" />
+                    </a>
+                    <p></p>
+                    <h3>Lead</h3>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6" style="background-color:black;">
+                <div style="text-align: center;">
+                    <a href = '/double-tenor'>
+                        <img src="/static/Drums/double-tenor.png" width="205px" align="center" />
+                    </a>
+                    <h3>Double Tenor</h3>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6" style="background-color:black;">
+                <div style="text-align: center;">
+                    <a href = '/double-second'>
+                        <img src="/static/Drums/double-second.png" width="205px" align="center" />
+                    </a>
+                    <h3>Double Second</h3>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6" style="background-color:black;">
+                <div style="text-align: center;">
+                    <a href = '/guitar-cello'>
+                        <img src="/static/Drums/guitar-cello.png" width="220px" align="center" />
+                    </a>
+                    <h3>Guitar Cello</h3>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6" style="background-color:black;">
+                <div style="text-align: center;">
+                    <a href = '/tenor-bass'>
+                        <img src="/static/Drums/tenor-bass.png" width="220px" align="center" />
+                    </a>
+                    <h3>Tenor Bass</h3>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6" style="background-color:black;">
+                <div style="text-align: center;">
+                    <a href = '/six-bass'>
+                        <img src="/static/Drums/six-bass.png" width="220px" align="center" />
+                    </a>
+                    <h3>Six Bass</h3>
+                </div>
+            </div>
+        </div>
+    </div>
     {% endblock %}
