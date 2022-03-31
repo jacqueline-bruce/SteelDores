@@ -10,6 +10,11 @@ from werkzeug.utils import secure_filename
 
 auth = Blueprint('auth', __name__)
 
+@auth.route('/')
+# @auth.route('/menu')
+@login_required
+def nav_to_menu():
+    return render_template("menu.html", user=current_user)
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
@@ -74,11 +79,6 @@ def nav_to_help():
 @login_required
 def nav_to_settings():
     return render_template("settings.html", user=current_user)
-
-@auth.route('/menu')
-@login_required
-def nav_to_menu():
-    return render_template("menu.html", user=current_user)
 
 @auth.route('/drum-select')
 @login_required
