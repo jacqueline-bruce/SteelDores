@@ -2,12 +2,6 @@ from . import db
 from flask_login import UserMixin
 from sqlalchemy.sql import func
 
-class Note(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    data = db.Column(db.String(10000))
-    date = db.Column(db.DateTime(timezone=True), default=func.now())
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-
 class Music(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable = False)
@@ -27,5 +21,3 @@ class User(db.Model, UserMixin):
     is_admin = db.Column(db.Boolean, default=False)
     background_color = db.Column(db.String(7), default='#ffffff')
     drum_color = db.Column(db.String(7), default='#dcdcdc')
-    notes = db.relationship('Note')
-    library = db.relationship('Music')

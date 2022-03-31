@@ -1,17 +1,14 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for, send_file
 from pyrsistent import v
 from .models import User, Music
-from io import BytesIO
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
 from flask_login import login_user, login_required, logout_user, current_user
-from werkzeug.utils import secure_filename
-
 
 auth = Blueprint('auth', __name__)
 
-@auth.route('/')
-# @auth.route('/menu')
+#@auth.route('/')
+@auth.route('/menu')
 @login_required
 def nav_to_menu():
     return render_template("menu.html", user=current_user)
@@ -88,7 +85,8 @@ def nav_to_drum_select():
 @auth.route('/music-library')
 @login_required
 def nav_to_music_library():
-    return render_template("music-library.html", user=current_user)
+    query = db.session.query(Music)
+    return render_template("music-library.html", user=current_user, query=query)
 
 @auth.route('/add-music', methods=['GET', 'POST'])
 @login_required

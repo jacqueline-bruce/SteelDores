@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, flash, jsonify
 from flask_login import login_required, current_user
-from .models import Note, Music
+from .models import Music
 from . import db
 import json
 
@@ -39,17 +39,17 @@ views = Blueprint('views', __name__)
 
 #     return render_template("music-library.html", user=current_user)
 
-@views.route('/delete-note', methods=['POST'])
-def delete_note():
-    note = json.loads(request.data)
-    noteId = note['noteId']
-    note = Note.query.get(noteId)
-    if note:
-        if note.user_id == current_user.id:
-            db.session.delete(note)
-            db.session.commit()
+# @views.route('/delete-note', methods=['POST'])
+# def delete_note():
+#     note = json.loads(request.data)
+#     noteId = note['noteId']
+#     note = Note.query.get(noteId)
+#     if note:
+#         if note.user_id == current_user.id:
+#             db.session.delete(note)
+#             db.session.commit()
 
-    return jsonify({})
+#    return jsonify({})
 
 @views.route('/delete-music', methods=['POST'])
 def delete_music():
