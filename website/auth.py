@@ -8,7 +8,12 @@ from flask_login import login_user, login_required, logout_user, current_user
 auth = Blueprint('auth', __name__)
 
 @auth.route('/')
-# @auth.route('/menu')
+#@login_required
+def nav_to_main():
+    return render_template("main-page.html", user=current_user)
+
+
+@auth.route('/menu')
 @login_required
 def nav_to_menu():
     return render_template("menu.html", user=current_user)
