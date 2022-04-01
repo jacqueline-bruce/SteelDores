@@ -25,6 +25,7 @@
 
     label {
       font: tahoma;
+      color: #e4a33a;
     }
 
     table {
@@ -37,7 +38,7 @@
     th {
       border:1px solid black;
       width: 14%;
-      background-color: gainsboro;
+      background-color: #e4a33a;
     }
 
     td {
@@ -46,14 +47,20 @@
       background-color: white;
     }
 
-    h1, h3 {
+    h1, h5 {
       color: #e4a33a;
-      font-family: impact;
+      font-family: Impact;
     }
 
     .navbar-custom {
       background-color: #e4a33a;
     } 
+
+    p {
+      color: white;
+      font-family: tahoma;
+      font-size: 40px;
+    }
 
     </style>
     <meta charset="utf-8" />
@@ -85,8 +92,8 @@
       <div class="collapse navbar-collapse" id="navbar">
         <div class="navbar-nav">
           {% if user.is_authenticated %}
-          <a class="nav-item nav-link" id="menu" href="/menu">Menu</a>
-          <a class="nav-item nav-link" id="menu" href="/drum-select">Drum Selection</a>
+          <a class="nav-item nav-link" id="menu" href="/">Menu</a>
+          <a class="nav-item nav-link dropdown" id="menu" href="/drum-select">Drum Selection</a>
           <a class="nav-item nav-link" id="menu" href="/music-library">Music Library</a>
           <a class="nav-item nav-link" id="menu" href="/settings">Settings</a>
           <a class="nav-item nav-link" id="menu" href="/help">Help</a>
@@ -99,7 +106,7 @@
       </div>
       <div class="collapse navbar-collapse justify-content-end" id="logo">
         <div class="navbar-nav">
-          <span class="navbar-text" style="font-family:impact">STEEL DORES</span>
+          <span class="navbar-text" style="font-family:impact;">STEEL DORES</span>
         </div>
       </div>
     </nav>

@@ -4,13 +4,13 @@
       <h1 align="center" style="line-height: 100px;">Music Library</h1>
       <table>
         <tr>
-          <th>Date Added</th>
-          <th>Title</th>
-          <th>Composer</th>
-          <th>Genre</th>
-          <th>Description</th>
-          <th>Sheet Music</th>
-          <th>Audio</th>
+          <th style="font-family:impact; font-size: 20px;">Date Added</th>
+          <th style="font-family:impact; font-size: 20px;">Title</th>
+          <th style="font-family:impact; font-size: 20px;">Composer</th>
+          <th style="font-family:impact; font-size: 20px;">Genre</th>
+          <th style="font-family:impact; font-size: 20px;">Description</th>
+          <th style="font-family:impact; font-size: 20px;">Sheet Music</th>
+          <th style="font-family:impact; font-size: 20px;">Audio</th>
         </tr>
         {% for music in query %}
           <tr>
@@ -51,4 +51,13 @@
       </table>
     </div>
     <br>
+    {% if user.is_admin %}
+    <div style="text-align: center;">
+      <a href="/add-music">
+        <button class="btn btn-primary" style="background-color: #383c44;
+          border-color: #383c44;">Add Music Sample</button>
+      </a>
+    </div>
+    <br>
+    {% endif %}
     {% endblock %}
