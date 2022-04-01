@@ -22,18 +22,16 @@
       color: inherit;
     }
 
-    .notes { 
-      font: tahoma;
-      fill: black;
-      text-anchor: "middle";
-    }
+    {#.notes { #}
+    {#  font: tahoma;#}
+    {#  fill: black;#}
+    {#  text-anchor: "middle";#}
+    {#}#}
 
     .button {
-      {#background-color: #383c44;#}
       background-color: #e4a33a;
-        font-family: impact, serif;
-      border: none;
-      {#color: white;#}
+      font-family: impact, serif;
+      border-color: black;
       color: black;
       padding: 10px;
       text-align: center;
@@ -43,6 +41,7 @@
       margin: 4px 4px;
       position: fixed;
     }
+
 
     .button1
     {
@@ -56,26 +55,19 @@
       top: 70px;
     }
 
+
     .button3
     {
-      background-color: white;
-      display: inline-block;
-      border: none;
-      position: fixed;
-      left: 10px;
-      bottom: 10px;
+      right: 0;
+      top: 0;
+      padding: 2px;
     }
 
     .button4
     {
       right: 0;
-      top: 0;
-    }
-
-    .button5
-    {
-      right: 0;
       top: 70px;
+      padding: 2px;
     }
 
     .drum
@@ -150,24 +142,25 @@
       src="{{ url_for('static', filename='index.js') }}"
     ></script>
 
-    <a href = "/drum-select">
-{#      <button class="button button1"><i class="fa-regular fa-drum-steelpan"></i> Select Drum</button>#}
-      <button class="button button1"><i class="fa-solid fa-arrow-left"></i> Select Drum</button>
-    </a>
 
     <a href = "/menu">
-      <button class="button button2"><i class="fa-solid fa-arrow-left"></i> Menu</button>
+      <button class="button button1"><i class="fa-solid fa-arrow-left"></i> Menu</button>
+    </a>
+
+    <a href = "/drum-select">
+{#      <button class="button button1"><i class="fa-regular fa-drum-steelpan"></i> Select Drum</button>#}
+      <button class="button button2"><i class="fa-solid fa-arrow-left"></i> Select Drum</button>
     </a>
 
     <a href = "/settings">
 {#      <button class="button button4"><i class="fa-regular fa-gear"></i> Settings</button>#}
-        <button class="button button4"></i>Settings</button>
+        <button class="button button3"><img src="/static/Design/settings-icon.png" alt="Settings" width="55"></button>
 
     </a>
 
     <a href = "/help">
 {#      <button class="button button5"><i class="fa-regular fa-circle-question"></i> Info</button>#}
-        <button class="button button5"></i>Help</button>
+        <button class="button button4"><img src="/static/Design/help-icon.png" alt="Help" width="55"></button>
     </a>
 
     <script>

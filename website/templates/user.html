@@ -2,6 +2,49 @@
 <html>
   <head>
     <style>
+
+    .button {
+      background-color: #e4a33a;
+      font-family: impact, serif;
+      border-color: black;
+      color: black;
+      padding: 10px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 25px;
+      margin: 4px 4px;
+      position: fixed;
+    }
+
+
+    .button1
+    {
+      left: 0;
+      top: 70px;
+    }
+
+    .button2
+    {
+      left: 0;
+      top: 140px;
+    }
+
+
+    .button3
+    {
+      right: 0;
+      top: 70px;
+      padding: 2px;
+    }
+
+    .button4
+    {
+      right: 0;
+      top: 140px;
+      padding: 2px;
+    }
+
     svg { 
       position: fixed; 
       top:80px;
@@ -80,6 +123,8 @@
     <title>{% block title %}Home{% endblock %}</title>
   </head>
   <body style = "background-color:black">
+
+{# NAV-BAR #}
     <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
       <button
         class="navbar-toggler"
