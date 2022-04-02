@@ -17,6 +17,7 @@ def nav_to_main():
 def nav_to_menu():
     return render_template("menu.html", user=current_user)
 
+
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -35,11 +36,13 @@ def login():
 
     return render_template("login.html", user=current_user)
 
+
 @auth.route('/logout')
 @login_required
 def logout():
     logout_user()
     return redirect(url_for('auth.login'))
+
 
 @auth.route('/lead')
 @login_required
@@ -51,46 +54,55 @@ def nav_to_lead():
 def nav_to_double_tenor():
     return render_template("double-tenor.html", user=current_user)
 
+
 @auth.route('/double-second')
 @login_required
 def nav_to_double_second():
     return render_template("double-second.html", user=current_user)
+
 
 @auth.route('/guitar-cello')
 @login_required
 def nav_to_guitar_cello():
     return render_template("guitar-cello.html", user=current_user)
 
+
 @auth.route('/tenor-bass')
 @login_required
 def nav_to_tenor_bass():
     return render_template("tenor-bass.html", user=current_user)
+
 
 @auth.route('/six-bass')
 @login_required
 def nav_to_six_bass():
     return render_template("six-bass.html", user=current_user)
 
+
 @auth.route('/help')
 @login_required
 def nav_to_help():
     return render_template("help.html", user=current_user)
+
 
 @auth.route('/settings')
 @login_required
 def nav_to_settings():
     return render_template("settings.html", user=current_user)
 
+
 @auth.route('/drum-select')
 @login_required
 def nav_to_drum_select():
     return render_template("drum-select.html", user=current_user)
+
 
 @auth.route('/music-library')
 @login_required
 def nav_to_music_library():
     query = db.session.query(Music)
     return render_template("music-library.html", user=current_user, query=query)
+
 
 @auth.route('/add-music', methods=['GET', 'POST'])
 @login_required
@@ -116,20 +128,26 @@ def add_music():
 
     return render_template("add-music.html", user=current_user)
 
+
 @auth.route('/settings', methods=['GET', 'POST'])
 def change_settings():
     if request.method == 'POST':
         background = request.form.get('background')
-        new_password = request.form.get('new-password')
         drum_color = request.form.get('drum-color')
+        new_password = request.form.get('new-password')
 
-        current_user.background_color = background
-        current_user.drum_color = drum_color
-        current_user.password = generate_password_hash(new_password, method='sha256')
-        db.session.commit()
-        return redirect(url_for('auth.nav_to_lead'))
+        current_user.set_background(background)
+        current_user.set_drum_color(drum_color)
+        if new_password and len(new_password) >= 7:
+            current_user.set_password(generate_password_hash(new_password, method='sha256'))
+            return redirect(url_for('auth.nav_to_lead'))
+        elif new_password:
+            flash('Password must be at least 7 characters.', category='error')
+        else:
+            return redirect(url_for('auth.nav_to_lead'))
 
     return render_template("settings.html", user=current_user)
+
 
 @auth.route('/sign-up', methods=['GET', 'POST'])
 def sign_up():
