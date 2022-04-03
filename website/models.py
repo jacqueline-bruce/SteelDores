@@ -57,7 +57,7 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(150))
     is_admin = db.Column(db.Boolean, default=False)
     background_color = db.Column(db.String(7), default='#000000')
-    drum_color = db.Column(db.String(7), default='#dcdcdc')
+    drum_color = db.Column(db.String(7), default='#e4a33a')
     sign_up_date = db.Column(db.Date(), default=func.current_date())
 
 
