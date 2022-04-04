@@ -286,6 +286,18 @@ class Test_Forms(Test):
             assert current_user.email == form['email']
             assert check_password_hash(current_user.password, form['password'])
 
+    def test_logout(self):
+        with self.client:
+            form_user = {'email':'bill@example.com', 'firstName': 'Bill',
+                'password1': 'password', 'password2': 'password'}
+
+            self.client.post('/sign-up', data=form_user)
+            assert current_user.is_authenticated
+
+            # Test that user is logged out correctly
+            self.client.get('/logout')
+            assert not current_user.is_authenticated
+
     def test_settings(self):
 
         # Create a user in database
