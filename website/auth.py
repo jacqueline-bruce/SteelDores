@@ -123,7 +123,6 @@ def add_music():
                                audio_link=audio_link, user_id=current_user.id)
             db.session.add(new_sample)
             db.session.commit()
-            flash('Sample added!', category='success')
             return redirect(url_for('auth.nav_to_music_library'))
 
     return render_template("add-music.html", user=current_user)
@@ -169,8 +168,9 @@ def sign_up():
         elif len(password1) < 7:
             flash('Password must be at least 7 characters.', category='error')
         else:
+            admin = True if db.session.query(User).count() == 0 else False
             new_user = User(email=email, first_name=first_name, password=generate_password_hash(
-                password1, method='sha256'))
+                password1, method='sha256'), is_admin=admin)
             db.session.add(new_user)
             db.session.commit()
             login_user(new_user, remember=True)
