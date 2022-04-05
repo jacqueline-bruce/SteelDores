@@ -69,7 +69,7 @@ class Test_User(Test):
         assert user.password == 'password'
         assert not user.is_admin
         assert user.background_color == '#000000'
-        assert user.drum_color == '#dcdcdc'
+        assert user.drum_color == '#e4a33a'
         assert user.sign_up_date == date.today()
 
     
@@ -215,8 +215,8 @@ class Test_Forms(Test):
             assert user.first_name == form['firstName']
             assert check_password_hash(user.password, form['password1'])
         
-            # Check that user is not an admin
-            assert not user.is_admin
+            # Check that user is an admin
+            assert user.is_admin
 
             # Check that user is logged in after signing up
             assert current_user.is_authenticated
