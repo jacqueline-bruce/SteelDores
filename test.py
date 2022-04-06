@@ -5,7 +5,6 @@ from website.views import views
 from website.models import User, Music
 import unittest
 from flask import Flask
-from datetime import date
 from flask_login import LoginManager, current_user
 from werkzeug.security import check_password_hash
 
@@ -70,7 +69,6 @@ class Test_User(Test):
         assert not user.is_admin
         assert user.background_color == '#000000'
         assert user.drum_color == '#e4a33a'
-        assert user.sign_up_date == date.today()
 
     
     # Test function to change user's email
@@ -146,7 +144,6 @@ class Test_Music(Test):
         assert music.pdf_link == ''
         assert music.audio_link == ''
         assert music.user_id == None
-        assert music.date == date.today()
 
     # Test function to change music sample's title
     def test_set_title(self):
