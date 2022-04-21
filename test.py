@@ -88,7 +88,7 @@ class Test_User(Test):
 
 
     # Test function to change user's password
-    def test_set_email(self):
+    def test_set_password(self):
         user = self.create_test_user()
         user.set_password('steelDores')
 
