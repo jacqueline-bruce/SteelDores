@@ -79,7 +79,7 @@
 
     </style>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -135,11 +135,6 @@
       src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"
-    ></script>
-
-    <script
-      type="text/javascript"
-      src="{{ url_for('static', filename='index.js') }}"
     ></script>
 
 
@@ -275,10 +270,6 @@
       var C_high = new Audio('/static/Notes/C_high.wav')
       C_high.preload = 'auto';
       C_high.load();
-
-      var C0 = new Audio('/static/Notes/C0.wav')
-      C0.preload = 'auto';
-      C0.load();
 
       var C1 = new Audio('/static/Notes/C1.wav')
       C1.preload = 'auto';

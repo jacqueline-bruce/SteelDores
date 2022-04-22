@@ -12,7 +12,7 @@
         preserveAspectRatio="xMidYMid meet">
             **<a href='#' id="G0" onclick="playNote(G5);">**
                 <circle cx="548" cy="310" r="12" fill="white" stroke="black" stroke-width="3" fill-opacity="50%" />
-                <text style="font-size:18px" x="542" y="316" class="notes">G</text>
+                <text style="font-size:18px" x="541" y="316" class="notes">G</text>
             **</a>**
 
             **<a href='#' id="C#1" onclick="playNote(Db5);">**
@@ -202,5 +202,17 @@
             **</a>**
         </svg>
     </div>
+
+    <!-- <script>
+        document.addEventListener('touchstart', f)
+
+        function f(ev) {
+            [...ev.touches].forEach(touch => {
+                let note_str = touch.target.parentElement.id
+                let note = window[note_str]
+                playNote(note)
+            })
+        }
+    </script> -->
 
     {% endblock %}
