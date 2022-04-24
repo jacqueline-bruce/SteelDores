@@ -1,7 +1,7 @@
 {% extends "user.html" %} {% block title %}Music Library{% endblock %} {% block content
       %}
     <div>
-      <h1 align="center" style="line-height: 100px;">Music Library</h1>
+      <h1 align="center" style="line-height: 70px;">Music Library</h1>
       <body>
         {# BUTTONS #}
 <!--        <a href = "/menu">-->
@@ -72,7 +72,8 @@
               </a>
             </td>
             <td>
-              <a href="{{ url_for('views.delete_music', id=music.id) }}">
+              <a href="{{ url_for('views.delete_music', id=music.id) }}"
+                 onclick="return confirm('Are you sure you want to delete this sample?');">
                 <img src='static/Design/Delete.png' height=30 />
               </a>
             </td>

@@ -178,11 +178,13 @@ def change_settings():
         current_user.set_drum_color(drum_color)
         if new_password and len(new_password) >= 7:
             current_user.set_password(generate_password_hash(new_password, method='sha256'))
-            return redirect(url_for('auth.nav_to_lead'))
+            flash('Settings updated successfully!', category="success")
+            return redirect(url_for('auth.change_settings'))
         elif new_password:
             flash('Password must be at least 7 characters.', category='error')
         else:
-            return redirect(url_for('auth.nav_to_lead'))
+            flash('Settings updated successfully!', category="success")
+            return redirect(url_for('auth.change_settings'))
 
     return render_template("settings.html", user=current_user)
 

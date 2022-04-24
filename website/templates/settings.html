@@ -11,24 +11,30 @@
 <!--            <button class="button button3"><img src="/static/Design/help-icon.png" alt="Help" width="55"></button>-->
 <!--        </a>-->
 <!--    </body>-->
-    <form method="POST">
+    <form method="POST" align="center">
         <h1 align="center" style="line-height: 70px;">Settings</h1>
-    
-        <input type="color" id="background" 
-               name="background" style="border-color: gainsboro" 
-               value={{ user.background_color }} /> -->
-
+        <table align="center" style="width:30%;">
+            <tr>
+                <td class="settings">
+                    <input type="color" id="background" 
+                    name="background" style="border-color: gainsboro;" 
+                    value={{ user.background_color }} />
+                </td>
+                <td class="settings">
+                    <input type="color" id="drum-color" 
+                    name="drum-color" style="border-color: gainsboro" 
+                    value={{ user.drum_color }} />
+                </td>
+            </tr>
+            <tr>
+                <td class="settings"><label>Background Color</label></td>
+                <td class="settings"><label>Drum Color</label></td>
+            </tr>
+        </table>
         <button type="submit" class="btn btn-primary" 
             style="background-color: #383c44; border-color: #383c44;">
-            Change Background Color</button>
+            Save Changes</button>
 
-        <p></p>
-        <input type="color" id="drum-color" 
-                name="drum-color" style="border-color: gainsboro" 
-                value={{ user.drum_color }} /> -->
-        <button type="submit" class="btn btn-primary" 
-            style="background-color: #383c44; border-color: #383c44;">
-            Change Drum Color</button>
 
         <p></p>
         <input type="text" id ="new-password" name="new-password" /> -->
