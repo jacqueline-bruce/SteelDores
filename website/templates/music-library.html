@@ -18,13 +18,17 @@
       </body>
       <table>
         <tr>
-          <th style="font-family:impact; font-size: 20px;">Date Added</th>
-          <th style="font-family:impact; font-size: 20px;">Title</th>
-          <th style="font-family:impact; font-size: 20px;">Composer</th>
-          <th style="font-family:impact; font-size: 20px;">Genre</th>
-          <th style="font-family:impact; font-size: 20px;">Description</th>
-          <th style="font-family:impact; font-size: 20px;">Sheet Music</th>
-          <th style="font-family:impact; font-size: 20px;">Audio</th>
+          <th style="width:12.71%; font-family: impact; font-size: 20px;">Date Added</th>
+          <th style="width:12.71%; font-family: impact; font-size: 20px;">Title</th>
+          <th style="width:12.71%; font-family: impact; font-size: 20px;">Composer</th>
+          <th style="width:12.71%; font-family: impact; font-size: 20px;">Genre</th>
+          <th style="width:12.71%; font-family: impact; font-size: 20px;">Description</th>
+          <th style="width:12.71%; font-family: impact; font-size: 20px;">Sheet Music</th>
+          <th style="width:12.71%; font-family: impact; font-size: 20px;">Audio</th>
+          {% if user.is_admin %}
+            <th style="width:5.5%; font-family: impact; font-size: 20px;">Edit</th>
+            <th style="width:5.5%; font-family: impact; font-size: 20px;">Delete</th>
+          {% endif %}
         </tr>
         {% for music in query %}
           <tr>

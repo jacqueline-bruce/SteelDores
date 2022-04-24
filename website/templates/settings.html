@@ -11,7 +11,7 @@
 <!--            <button class="button button3"><img src="/static/Design/help-icon.png" alt="Help" width="55"></button>-->
 <!--        </a>-->
 <!--    </body>-->
-    <form method="POST" align="center">
+    <form method="POST">
         <h1 align="center" style="line-height: 70px;">Settings</h1>
     
         <input type="color" id="background" 
@@ -43,5 +43,15 @@
             id = "deleteButton" value = "Delete Account">
 
     </form>
+
+    {% if user.is_admin %}
+    <br>
+    <div>
+      <a href = "/change-user-permissions">
+        <button class="button"></i>Change User Permissions</button>
+      </a>
+    </div>
+    <br>
+    {% endif %}
 
     {% endblock %}

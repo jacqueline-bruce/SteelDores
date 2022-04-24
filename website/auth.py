@@ -127,6 +127,25 @@ def add_music():
 
     return render_template("add-music.html", user=current_user)
 
+@auth.route('/change-user-permissions', methods=['GET', 'POST'])
+@login_required
+def change_permissions():
+    if request.method == 'POST':
+        email = request.form.get('email')
+        admin_set = request.form.get('priv')
+
+        user = User.query.filter_by(email=email).first()
+        is_admin = True if admin_set == 'admin' else False
+
+        if not user:
+            flash('This email does not exist.', category='error')
+        else:
+            user.set_is_admin(is_admin)
+            flash('User permissions updated!', category='success')
+            return redirect(url_for('auth.change_settings'))
+
+    return render_template("permissions.html", user=current_user)
+
 
 @auth.route('/settings', methods=['GET', 'POST'])
 def change_settings():
