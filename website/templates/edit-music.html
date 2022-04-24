@@ -1,0 +1,133 @@
+{% extends "user.html" %} {% block title %}Edit Music Sample{% endblock %} {% block
+    content %}
+    {% if user.is_admin %}
+        <form method="POST">
+            <div>
+                <h1 align="center" style="line-height: 70px;">Edit Music Sample</h1>
+            </div>
+            <div class="form-group">
+                <label for="title">Song Title</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="title"
+                    name="title"
+                    value={{ music.title }}
+            />
+            </div>
+            <div class="form-group">
+                <label for="composer">Composer (Optional)</label>
+                {% if music.composer != '' %}
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="composer"
+                        name="composer"
+                        value={{ music.composer }}
+                    />
+                {% else %}
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="composer"
+                        name="composer"
+                    />
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="genre">Genre (Optional)</label>
+                {% if music.genre != '' %}
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="genre"
+                        name="genre"
+                        value={{ music.genre }}
+                    />
+                {% else %}
+                <input
+                    type="text"
+                    class="form-control"
+                    id="genre"
+                    name="genre"
+                />
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="description">Description (Optional)</label>
+                {% if music.description != '' %}
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="description"
+                        name="description"
+                        value={{ music.description }}
+                    />
+                {% else %}
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="description"
+                        name="description"
+                    />
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="pdf_link">Link to Sheet Music (Optional)</label>
+                {% if music.pdf_link != '' %}
+                    <input
+                        type="url"
+                        class="form-control"
+                        id="pdf_link"
+                        name="pdf_link"
+                        value={{ music.pdf_link }}
+                    />
+                {% else %}
+                    <input
+                        type="url"
+                        class="form-control"
+                        id="pdf_link"
+                        name="pdf_link"
+                    />
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="audio_link">Link to Audio (Optional)</label>
+                {% if music.audio_link != '' %}
+                    <input
+                        type="url"
+                        class="form-control"
+                        id="audio_link"
+                        name="audio_link"
+                        value={{ music.audio_link }}
+                    />
+                {% else %}
+                    <input
+                        type="url"
+                        class="form-control"
+                        id="audio_link"
+                        name="audio_link"
+                    />
+                {% endif %}
+            </div>
+            <div style="display: flex;">
+                <button type="submit" class="btn btn-primary" 
+                    style="background-color: #383c44; border-color: 
+                    #383c44; margin-right: 15px;">Save</button>
+            </div>
+            <br>
+        </form>
+    {% else %}
+        <p></p>
+        <div id="content" style="width: 100%; height: 100%">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+        viewBox="0 0 4000 3000"
+        preserveAspectRatio="xMidYMid meet">
+                <image  href="static/Design/sad-koala.png" width="3000px" x="500px" y="320px"></image>
+                <text style="font-size:180px;fill:white;font-family:Impact" x="140px" y="200px" class="notes">
+                    Oh no! You don't have permission to view this page.
+                </text>
+            </svg>
+        </div>
+    {% endif %}
+    {% endblock %}

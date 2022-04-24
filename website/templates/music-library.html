@@ -64,6 +64,19 @@
             {% else %}
               <td><em>No link provided.</em></td>
             {% endif %}
+
+            {% if user.is_admin %}
+            <td>
+              <a href="{{ url_for('auth.edit_music', id=music.id) }}">
+                <img src='static/Design/Edit.png' height=30/>
+              </a>
+            </td>
+            <td>
+              <a href="{{ url_for('views.delete_music', id=music.id) }}">
+                <img src='static/Design/Delete.png' height=30 />
+              </a>
+            </td>
+          {% endif %}
           </tr>
         {% endfor %}
       </table>

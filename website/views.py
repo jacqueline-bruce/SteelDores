@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, flash, jsonify
+from flask import Blueprint, redirect, render_template, request, flash, jsonify, url_for
 from flask_login import login_required, current_user
 from .models import Music
 from . import db
@@ -6,59 +6,21 @@ import json
 
 views = Blueprint('views', __name__)
 
-# @views.route('/', methods=['GET', 'POST'])
-# @login_required
-# def home():
-#     if request.method == 'POST':
-#         note = request.form.get('note')
-#
-#         if len(note) < 1:
-#             flash('Note is too short!', category='error')
-#         else:
-#             new_note = Note(data=note, user_id=current_user.id)
-#             db.session.add(new_note)
-#             db.session.commit()
-#             flash('Note added!', category='success')
-#
-#     return render_template("home.html", user=current_user)
 
-# @views.route('/music-library', methods=['GET', 'POST'])
-# @login_required
-# def music_library():
-#     if request.method == 'POST':
-#         music = request.form.get('music')
-#         file = request.files['file']
+@views.route('/music-library')
+@login_required
+def nav_to_music_library():
+    query = db.session.query(Music)
+    return render_template("music-library.html", user=current_user, query=query)
 
-#         if len(music) < 1:
-#             flash('Note is too short!', category='error')
-#         else:
-#             new_music = Music(filename=file.filename, data=file.read(), user_id=current_user.id)
-#             db.session.add(new_music)
-#             db.session.commit()
-#             flash('Music added!', category='success')
 
-#     return render_template("music-library.html", user=current_user)
-
-# @views.route('/delete-note', methods=['POST'])
-# def delete_note():
-#     note = json.loads(request.data)
-#     noteId = note['noteId']
-#     note = Note.query.get(noteId)
-#     if note:
-#         if note.user_id == current_user.id:
-#             db.session.delete(note)
-#             db.session.commit()
-
-#    return jsonify({})
-
-@views.route('/delete-music', methods=['POST'])
-def delete_music():
-    music = json.loads(request.data)
-    musicId = music['musicId']
-    music = Music.query.get(musicId)
+@views.route('/delete/<int:id>', methods=['GET'])
+def delete_music(id):
+    music = Music.query.get(id)
     if music:
-        if music.user_id == current_user.id:
-            db.session.delete(music)
-            db.session.commit()
+        db.session.delete(music)
+        db.session.commit()
+        flash('Sample deleted successfully!', category='success')
 
-    return jsonify({})
+    query = db.session.query(Music)
+    return redirect(url_for('views.nav_to_music_library'))

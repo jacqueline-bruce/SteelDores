@@ -97,13 +97,6 @@ def nav_to_drum_select():
     return render_template("drum-select.html", user=current_user)
 
 
-@auth.route('/music-library')
-@login_required
-def nav_to_music_library():
-    query = db.session.query(Music)
-    return render_template("music-library.html", user=current_user, query=query)
-
-
 @auth.route('/add-music', methods=['GET', 'POST'])
 @login_required
 def add_music():
@@ -123,9 +116,36 @@ def add_music():
                                audio_link=audio_link, user_id=current_user.id)
             db.session.add(new_sample)
             db.session.commit()
-            return redirect(url_for('auth.nav_to_music_library'))
+            return redirect(url_for('views.nav_to_music_library'))
 
     return render_template("add-music.html", user=current_user)
+
+
+@auth.route('/edit-music/<int:id>', methods=['GET', 'POST'])
+@login_required
+def edit_music(id):
+    music = Music.query.get(id)
+    if request.method == 'POST':
+        title = request.form.get('title')
+        composer = request.form.get('composer')
+        genre = request.form.get('genre')
+        description = request.form.get('description')
+        pdf_link = request.form.get('pdf_link')
+        audio_link = request.form.get('audio_link')
+
+        if len(title) < 1:
+            flash('You must enter a title.', category='error')
+        else:
+            music.set_title(title)
+            music.set_composer(composer)
+            music.set_genre(genre)
+            music.set_description(description)
+            music.set_pdf(pdf_link)
+            music.set_audio(audio_link)
+            db.session.commit()
+            return redirect(url_for('views.nav_to_music_library'))
+
+    return render_template("edit-music.html", user=current_user, music=music)
 
 @auth.route('/change-user-permissions', methods=['GET', 'POST'])
 @login_required
