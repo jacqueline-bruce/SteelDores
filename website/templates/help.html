@@ -1,32 +1,29 @@
 {% extends "user.html" %} {% block title %}Help{% endblock %} {% block content
     %}
     <h1 align="center" style="line-height: 70px;">Info</h1>
-<!--    <body>-->
-<!--        {# BUTTONS #}-->
-<!--        <a href = "/menu">-->
-<!--          <button class="button button1">Menu</button>-->
-<!--        </a>-->
-
-<!--        <a href = "/settings">-->
-<!--            <button class="button button3"><img src="/static/Design/settings-icon.png" alt="Settings" width="55"></button>-->
-<!--        </a>-->
-<!--    </body>-->
-<!--    <div id="content" style="width: 100%; height: 100%">-->
-<!--        <svg xmlns="http://www.w3.org/2000/svg" version="1.1"-->
-<!--        viewBox="0 0 1000 1000"-->
-<!--        preserveAspectRatio="xMidYMid meet">-->
-<!--            <ellipse cx="505" cy="245" rx="210" ry="210" class="drum" />-->
-<!--            <ellipse cx="222" cy="581" rx="210" ry="210" class="drum" />-->
-<!--            <ellipse cx="790" cy="581" rx="210" ry="210" class="drum" />-->
-
-<!--            **<a href='#' id="Ab1" onclick="playNote(Ab4);">**-->
-<!--                <ellipse cx="154" cy="586" rx="20" ry="36" stroke="black" stroke-width="3" fill="white" fill-opacity="50%"-->
-<!--                fill="grey" transform="rotate(-14, 154, 586)"/>-->
-<!--                <text style="font-size:26px" x="142" y="595" class="notes">A<tspan dy="-4" font-size=".8em">&#x266d</tspan></text>-->
-<!--            **</a>**-->
-<!--            **<a href='/settings'>**-->
-<!--                **<image  href="static/Design/settings-icon.png" width="80px" x="900px"></image>-->
-<!--            **</a>**-->
-<!--        </svg>-->
-<!--    </div>-->
+    <div style="text-align: center;">
+        <p class="help">
+            Welcome to the Steel Dores web application!
+        </p>
+        <p class="help">
+            The purpose of this app is to allow users to practice playing the steel pans.
+            Steel pans are percussion instruments from Trinidad and Tobago made from 55-gallon industrial drums. 
+            They are chromatically-pitched; each indent in a steel pan corresponds to a different pitch. 
+            There are several different types of steel drums. When played together in a band,
+            they create a unique sound that cannot be emulated by other instruments.
+        </p>
+        <p class="help">
+            Steel Dores allows user to practice making music on virtual steel pans. We provide
+            six types of pans for users to choose from: lead, double tenor, double second, guitar/cello,
+            tenor bass, and six bass. To use the app, choose a pan type from our 
+            <a href='/drum-select' style="color:#e4a33a">Pan Selection</a> page.
+            Then, tap or click on the pan's indents to hear the many notes that the pan can produce.
+        </p>
+        <p class="help">
+            This application was created specifically for the steel band program at Vanderbilt University's
+            Blair School of Music in Nashville, Tennessee. For more information on the steel band
+            program,
+            <a href='https://blair.vanderbilt.edu/ensembles/steel-bands.php' style="color:#e4a33a" target="_blank">click here.</a>
+        </p>
+    </div>
     {% endblock %}
