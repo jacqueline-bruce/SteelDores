@@ -27,37 +27,95 @@
                 </td>
             </tr>
             <tr>
-                <td class="settings"><label>Background Color</label></td>
-                <td class="settings"><label>Drum Color</label></td>
+                <td class="settings"><label class="account">Background Color</label></td>
+                <td class="settings"><label class="account">Drum Color</label></td>
             </tr>
         </table>
         <button type="submit" class="btn btn-primary" 
             style="background-color: #383c44; border-color: #383c44;">
             Save Changes</button>
-
-
-        <p></p>
-        <input type="text" id ="new-password" name="new-password" /> -->
-        <button type="submit" class="btn btn-primary" 
-            style="background-color: #383c44; border-color: #383c44;">
-            Change Password</button>
-
-    
-        <p></p>
-        <input type="button" class="btn btn-primary" 
-            style="background-color: #383c44; border-color: #383c44;"
-            id = "deleteButton" value = "Delete Account">
-
     </form>
 
+    <br>
+    <h3 align="center" style="line-height: 30px;">Account Information</h3>
+
+    <table align="center" style="width:30%;">
+        <tr>
+            <td class="settings">
+                <label class="account">Email: {{ user.email }}</label>
+            </td>
+        </tr>
+        <tr>
+            <td class="settings">
+                <label class="account">First Name: {{ user.first_name }}</label>
+            </td>
+        </tr>
+        <tr>
+            <td class="settings">
+                <label class="account">Sign-Up Date: {{ user.sign_up_date }}</label>
+            </td>
+        </tr>
+        <tr>
+            <td class="settings">
+                {% if user.is_admin %}
+                    <label class="account">Permissions: Admin User</label>
+                {% else %}
+                    <label class="account">Permissions: Regular User</label>
+                {% endif %}
+            </td>
+        </tr>
+    </table>
+    <table align="center" style="width:29%;">
+        <tr>
+            <td class="settings">
+                <a href="/update-account">
+                    <button class="btn btn-primary" 
+                    style="background-color: #383c44; border-color: #383c44;">
+                    Update Account</button>
+                </a>
+            </td>
+            <td class="settings">
+                <a href="/change-password">
+                    <button class="btn btn-primary" 
+                    style="background-color: #383c44; border-color: #383c44;">
+                    Change Password</button>
+                </a>
+            </td>
+            <td class="settings">
+                <a href="/delete-account">
+                    <button class="btn btn-primary" 
+                    onclick="return confirm('Are you sure you want to delete your account? This action cannot be undone.');"
+                    style="background-color: #383c44; border-color: #383c44;">
+                    Delete Account</button>
+                </a>
+            </td>
+        </tr>
+    </table>
+
     {% if user.is_admin %}
-    <br>
-    <div>
-      <a href = "/change-user-permissions">
-        <button class="button"></i>Change User Permissions</button>
-      </a>
-    </div>
-    <br>
+    <table align="center" style="width:35%;">
+        <tr>
+            <td class="settings">
+                <a href="/change-user-permissions">
+                    <button class="btn btn-primary" 
+                    style="background-color: #383c44; border-color: #383c44;">
+                    Admin: Change User Permissions</button>
+                </a>
+            </td>
+        </tr>
+    </table>
     {% endif %}
+
+    <table align="center" style="width:40%;">
+        <tr>
+            <td class="settings">
+                <a href="/logout" onclick="return confirm('Are you sure you want to logout?');">
+                    <button class="btn btn-primary" 
+                    style="background-color: #383c44; border-color: #383c44;">
+                    Logout</button>
+                </a>
+            </td>
+        </tr>
+    </table>
 
     {% endblock %}

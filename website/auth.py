@@ -1,3 +1,4 @@
+from tabnanny import check
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from .models import User, Music
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -40,6 +41,17 @@ def login():
 @auth.route('/logout')
 @login_required
 def logout():
+    logout_user()
+    return redirect(url_for('auth.login'))
+
+
+@auth.route('/delete-account')
+@login_required
+def delete_account():
+    db.session.delete(current_user)
+    db.session.commit()
+    flash('Account deleted.', category='success')
+
     logout_user()
     return redirect(url_for('auth.login'))
 
@@ -172,21 +184,56 @@ def change_settings():
     if request.method == 'POST':
         background = request.form.get('background')
         drum_color = request.form.get('drum-color')
-        new_password = request.form.get('new-password')
 
         current_user.set_background(background)
         current_user.set_drum_color(drum_color)
-        if new_password and len(new_password) >= 7:
-            current_user.set_password(generate_password_hash(new_password, method='sha256'))
-            flash('Settings updated successfully!', category="success")
-            return redirect(url_for('auth.change_settings'))
-        elif new_password:
-            flash('Password must be at least 7 characters.', category='error')
-        else:
-            flash('Settings updated successfully!', category="success")
-            return redirect(url_for('auth.change_settings'))
+        flash('Design settings updated successfully!', category="success")
+        return redirect(url_for('auth.change_settings'))
 
     return render_template("settings.html", user=current_user)
+\
+
+@auth.route('/update-account', methods=['GET', 'POST'])
+def update_account():
+    if request.method == 'POST':
+        email = request.form.get('email')
+        first_name = request.form.get('firstName')
+
+        user = User.query.filter_by(email=email).first()
+        if user and email != current_user.email:
+            flash('Email already exists.', category='error')
+        elif len(email) < 4:
+            flash('Email must be greater than 3 characters.', category='error')
+        elif len(first_name) < 2:
+            flash('First name must be greater than 1 character.', category='error')
+        else:
+            current_user.set_email(email)
+            current_user.set_first_name(first_name)
+            flash('Account updated!', category='success')
+            return redirect(url_for('auth.change_settings'))
+
+    return render_template("update-account.html", user=current_user)
+
+
+@auth.route('/change-password', methods=['GET', 'POST'])
+def change_password():
+    if request.method == 'POST':
+        old_password = request.form.get('old')
+        password1 = request.form.get('password1')
+        password2 = request.form.get('password2')
+
+        if not check_password_hash(current_user.password, old_password):
+            flash('Current password is incorrect, try again.', category='error')
+        elif password1 != password2:
+            flash('New passwords don\'t match.', category='error')
+        elif len(password1) < 7:
+            flash('New password must be at least 7 characters.', category='error')
+        else:
+            current_user.set_password(generate_password_hash(password1, method='sha256'))
+            flash('Password changed!', category='success')
+            return redirect(url_for('auth.change_settings'))
+
+    return render_template("change-password.html", user=current_user)
 
 
 @auth.route('/sign-up', methods=['GET', 'POST'])

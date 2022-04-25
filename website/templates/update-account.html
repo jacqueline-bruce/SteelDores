@@ -1,0 +1,33 @@
+{% extends "user.html" %} {% block title %}Update Account{% endblock %} {% block
+    content %}
+    <form method="POST">
+        <div>
+            <h1 align="center" style="line-height: 70px;">Update Account Information</h1>
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                value={{ user.email }}
+        />
+        </div>
+        <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input
+                type="text"
+                class="form-control"
+                id="firstName"
+                name="firstName"
+                value={{ user.first_name }}
+            />
+        </div>
+        <div style="display: flex;">
+            <button type="submit" class="btn btn-primary" 
+                style="background-color: #383c44; border-color: 
+                #383c44; margin-right: 15px;">Save</button>
+        </div>
+    </form>
+    {% endblock %}
