@@ -8,6 +8,7 @@ from flask import Flask
 from flask_login import LoginManager, current_user
 from werkzeug.security import check_password_hash
 
+
 class Test(TestCase):
 
     SQLALCHEMY_DATABASE_URI = 'sqlite://test.db'
